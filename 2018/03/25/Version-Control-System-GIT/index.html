@@ -12,13 +12,13 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/25/Version-Control-System-GIT/index.html">
 <meta property="og:site_name" content="Freda&#39;s Blog">
 <meta property="og:description" content="git initgit status .gitignore // 加進去的檔案 git status 不會秀出  git add12# 一個檔案部分 addgit add -p git commit 50/72 rule. Unique hash value, 基本上前六碼就足以辨識  123# 修改 HEAD commit 產生新的 hash value, amend 前的 commit 不會消">
-<meta property="og:image" content="http://yoursite.com/2018/03/25/Version-Control-System-GIT/merge.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/03/25/Version-Control-System-GIT/rebase.jpg">
-<meta property="og:updated_time" content="2018-03-25T08:18:23.056Z">
+<meta property="og:image" content="http://yoursite.com/2018/03/25/Version-Control-System-GIT/merge.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/25/Version-Control-System-GIT/rebase.png">
+<meta property="og:updated_time" content="2018-03-25T08:33:33.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Version Control System -- GIT">
 <meta name="twitter:description" content="git initgit status .gitignore // 加進去的檔案 git status 不會秀出  git add12# 一個檔案部分 addgit add -p git commit 50/72 rule. Unique hash value, 基本上前六碼就足以辨識  123# 修改 HEAD commit 產生新的 hash value, amend 前的 commit 不會消">
-<meta name="twitter:image" content="http://yoursite.com/2018/03/25/Version-Control-System-GIT/merge.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2018/03/25/Version-Control-System-GIT/merge.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -106,10 +106,10 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 當有 conflict, 編輯 conflict  的檔案中 &lt;&lt;&lt;&lt;&lt;&lt;&lt; 到 &gt;&gt;&gt;&gt;&gt;&gt;&gt; 之間的 code</span></div><div class="line">$ git merge &lt;branch&gt; --no-ff</div><div class="line">$ git add &lt;conflict file&gt;; git commit</div></pre></td></tr></table></figure>
 <ul>
-<li>merge 前 (左圖)，merge 後 (右圖)<br><img src="merge.jpg" alt="git merge"></li>
+<li>merge 前 (左圖)，merge 後 (右圖)<br><img src="merge.png" alt="git merge"></li>
 </ul>
 <h3 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a>git rebase</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 當有 conflict 的時候會用到 git rebase --continue 或 git rebase --abort</span></div><div class="line">$ git rebase &lt;new base&gt;</div><div class="line">$ git rebase --onto Master Base B</div><div class="line"></div><div class="line"><span class="comment"># 任意修改甚至刪除 commit</span></div><div class="line">$ git rebase -I &lt;開始&gt; &lt;結尾&gt;</div></pre></td></tr></table></figure>
-<p><img src="rebase.jpg" alt="git rebase"></p>
+<p><img src="rebase.png" alt="git rebase"></p>
 <h3 id="git-stash"><a href="#git-stash" class="headerlink" title="git stash"></a>git stash</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git stash list</div><div class="line">$ git stash pop stash@&#123;1&#125;</div><div class="line">$ git stash drop stash@&#123;2&#125;</div></pre></td></tr></table></figure>
 <h3 id="git-blame"><a href="#git-blame" class="headerlink" title="git blame"></a>git blame</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git blame -L &lt;start&gt;,&lt;end&gt; &lt;file&gt;</div><div class="line">$ git blame -L :&lt;<span class="keyword">function</span>&gt; &lt;file&gt;</div></pre></td></tr></table></figure>
 <p><strong>Reference:</strong><br><a href="https://git-scm.com/book/en/v2" target="_blank" rel="external">https://git-scm.com/book/en/v2</a><br><a href="https://www.youtube.com/playlist?list=PLlyOkSAh6TwcvJQ1UtvkSwhZWCaM_S07d" target="_blank" rel="external">https://www.youtube.com/playlist?list=PLlyOkSAh6TwcvJQ1UtvkSwhZWCaM_S07d</a></p>
