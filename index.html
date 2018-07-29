@@ -49,6 +49,62 @@
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-Makefile-基礎篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/29/Makefile-基礎篇/">Makefile -- 基礎篇</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2018/07/29/Makefile-基礎篇/" class="article-date">
+  <time datetime="2018-07-29T06:33:51.000Z" itemprop="datePublished">2018-07-29</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="hello-c"><a href="#hello-c" class="headerlink" title="hello.c"></a>hello.c</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ vi hello.c</div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"Hello World!\n"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Compile-hello-c"><a href="#Compile-hello-c" class="headerlink" title="Compile hello.c"></a>Compile hello.c</h3><p>gcc 沒有帶變數的情況下編譯，預設產生 a.out，直接執行 a.out 就可以了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ gcc hello.c <span class="comment"># gcc 是編譯器</span></div><div class="line">$ ls -al</div><div class="line">total 32</div><div class="line">drwxr-xr-x   4 freda.hsiao  staff   128  7 29 14:52 .</div><div class="line">drwxr-xr-x+ 36 freda.hsiao  staff  1152  7 29 14:52 ..</div><div class="line">-rwxr-xr-x   1 freda.hsiao  staff  8432  7 29 14:52 a.out <span class="comment"># 執行檔(binary program)</span></div><div class="line">-rw-r--r--   1 freda.hsiao  staff    62  7 29 14:29 hello.c <span class="comment"># 原始碼</span></div><div class="line">$ ./a.out </div><div class="line">Hello World!</div></pre></td></tr></table></figure></p>
+        
+          <p class="article-more-link">
+            <a href="/2018/07/29/Makefile-基礎篇/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gcc/">gcc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/makefile/">makefile</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+    
       <article id="post-Version-Control-System-GIT" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     

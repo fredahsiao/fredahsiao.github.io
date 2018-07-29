@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Makefile -- 基礎篇 - Freda&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="hello.c123456$ vi hello.c#include &amp;lt;stdio.h&amp;gt;  int main() &amp;#123;	printf(&quot;Hello World!\n&quot;);&amp;#125; Compile hello.cgcc 沒有帶變數的情況下編譯，預設產生 a.out，直接執行 a.out 就可以了。123456789$ gcc hello.c # gcc 是編譯器$ ls -al">
+<meta name="keywords" content="makefile,gcc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Makefile -- 基礎篇">
+<meta property="og:url" content="http://yoursite.com/2018/07/29/Makefile-基礎篇/index.html">
+<meta property="og:site_name" content="Freda&#39;s Blog">
+<meta property="og:description" content="hello.c123456$ vi hello.c#include &amp;lt;stdio.h&amp;gt;  int main() &amp;#123;	printf(&quot;Hello World!\n&quot;);&amp;#125; Compile hello.cgcc 沒有帶變數的情況下編譯，預設產生 a.out，直接執行 a.out 就可以了。123456789$ gcc hello.c # gcc 是編譯器$ ls -al">
+<meta property="og:updated_time" content="2018-07-29T09:53:18.968Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Makefile -- 基礎篇">
+<meta name="twitter:description" content="hello.c123456$ vi hello.c#include &amp;lt;stdio.h&amp;gt;  int main() &amp;#123;	printf(&quot;Hello World!\n&quot;);&amp;#125; Compile hello.cgcc 沒有帶變數的情況下編譯，預設產生 a.out，直接執行 a.out 就可以了。123456789$ gcc hello.c # gcc 是編譯器$ ls -al">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-Makefile-基礎篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Makefile -- 基礎篇
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2018/07/29/Makefile-基礎篇/" class="article-date">
+  <time datetime="2018-07-29T06:33:51.000Z" itemprop="datePublished">2018-07-29</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="hello-c"><a href="#hello-c" class="headerlink" title="hello.c"></a>hello.c</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ vi hello.c</div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"Hello World!\n"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Compile-hello-c"><a href="#Compile-hello-c" class="headerlink" title="Compile hello.c"></a>Compile hello.c</h3><p>gcc 沒有帶變數的情況下編譯，預設產生 a.out，直接執行 a.out 就可以了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ gcc hello.c <span class="comment"># gcc 是編譯器</span></div><div class="line">$ ls -al</div><div class="line">total 32</div><div class="line">drwxr-xr-x   4 freda.hsiao  staff   128  7 29 14:52 .</div><div class="line">drwxr-xr-x+ 36 freda.hsiao  staff  1152  7 29 14:52 ..</div><div class="line">-rwxr-xr-x   1 freda.hsiao  staff  8432  7 29 14:52 a.out <span class="comment"># 執行檔(binary program)</span></div><div class="line">-rw-r--r--   1 freda.hsiao  staff    62  7 29 14:29 hello.c <span class="comment"># 原始碼</span></div><div class="line">$ ./a.out </div><div class="line">Hello World!</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>不想要用預設檔名 a.out，可以這樣做：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ gcc hello.c -o hello</div><div class="line">$ ls -al</div><div class="line">total 32</div><div class="line">drwxr-xr-x   4 freda.hsiao  staff   128  7 29 15:20 .</div><div class="line">drwxr-xr-x+ 36 freda.hsiao  staff  1152  7 29 15:20 ..</div><div class="line">-rwxr-xr-x   1 freda.hsiao  staff  8432  7 29 15:20 hello <span class="comment"># 執行檔</span></div><div class="line">-rw-r--r--   1 freda.hsiao  staff    62  7 29 14:29 hello.c</div></pre></td></tr></table></figure></p>
+<p>上面的這個編譯方式可以拆解成這樣：<br>編譯過程是將 hello.c 先利用 -c (compile) 參數編譯成 .o (object file)，然後再鏈結函式庫成為一個 binary。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ gcc hello.c -c</div><div class="line">$ gcc hello.o -o hello</div></pre></td></tr></table></figure></p>
+<p>拆解成兩個步驟不是吃飽太閒，因為原始碼有時並不只有一個，不能直接編，要各別編成 .o 檔再鏈結成執行檔。<br>例如：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$ vi hello1.c</div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"Hello "</span>);</div><div class="line">	hello2()</div><div class="line">&#125;</div><div class="line"></div><div class="line">$ vi hello2.c</div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">hello2</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"World!\n"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>開始編譯：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ gcc -c hello1.c hello2.c</div><div class="line">$ ls -al</div><div class="line">total 32</div><div class="line">drwxr-xr-x   6 freda.hsiao  staff   192  7 29 15:46 .</div><div class="line">drwxr-xr-x+ 36 freda.hsiao  staff  1152  7 29 15:45 ..</div><div class="line">-rw-r--r--   1 freda.hsiao  staff    67  7 29 15:45 hello1.c</div><div class="line">-rw-r--r--   1 freda.hsiao  staff   804  7 29 15:46 hello1.o <span class="comment"># 產生出的 object 檔</span></div><div class="line">-rw-r--r--   1 freda.hsiao  staff    58  7 29 15:45 hello2.c</div><div class="line">-rw-r--r--   1 freda.hsiao  staff   764  7 29 15:46 hello2.o <span class="comment"># 產生出的 object 檔</span></div><div class="line">$ gcc -o hello hello1.o hello2.o</div><div class="line">$ ./hello </div><div class="line">Hello World!</div></pre></td></tr></table></figure></p>
+<p>如果改變其中一個原始碼，就只要重編那個就好，對於大專案很方便，<code>不需要</code>全部重新編譯 (會花很長的時間)。 </p>
+<h3 id="Create-Makefile"><a href="#Create-Makefile" class="headerlink" title="Create Makefile"></a>Create Makefile</h3><p>Makefile的基本組成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">標的(target): 目標檔1 目標檔2</div><div class="line">&lt;tab&gt;   gcc -o 欲建立的執行檔 目標檔1 目標檔2</div></pre></td></tr></table></figure></p>
+<p>實作剛才在 command line 的動作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ vi Makefile</div><div class="line">main: hello1.o hello2.o</div><div class="line">	gcc -o hello hello1.o hello2.o</div><div class="line">hello1.o:</div><div class="line">	gcc hello1.c -c</div><div class="line">hello2.o:</div><div class="line">	gcc hello2.c -c</div><div class="line">clean:</div><div class="line">	rm -rf hello1.o hello2.o hello</div><div class="line"></div><div class="line">$ make main <span class="comment"># 編譯</span></div><div class="line">$ make clean <span class="comment"># 清除編譯出的東西</span></div><div class="line">$ make clean main <span class="comment"># 聯合技，先清掉再編譯</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>make 有隱含規則 (implicit rules)<br>&ensp;&ensp;hello1.o:<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;gcc hello1.c -c<br>可以簡化成<br>&ensp;&ensp;hello1.o: hello1.c<br>或者是當你根本沒有定義 hello1.o 這個 target 時，make 會自動找 hello1.c 來編譯。</p>
+</li>
+<li><p>利用變數讓 Makefile 更簡潔，更容易維護</p>
+</li>
+</ul>
+<p>利用上述兩點可以變成：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ vi Makefile</div><div class="line">CC=gcc <span class="comment"># 等號前後有沒有空白都可以</span></div><div class="line">OBJS=hello1.o hello2.o</div><div class="line">TARGET=hello</div><div class="line"></div><div class="line">main: <span class="variable">$&#123;OBJS&#125;</span> <span class="comment"># 變數可以 $&#123;OBJS&#125; 也可以用 $(OBJS)</span></div><div class="line">	<span class="variable">$&#123;CC&#125;</span> -o <span class="variable">$&#123;TARGET&#125;</span> <span class="variable">$&#123;OBLS&#125;</span></div><div class="line">clean:</div><div class="line">	rm -rf <span class="variable">$&#123;OBJS&#125;</span> <span class="variable">$&#123;TARGET&#125;</span></div></pre></td></tr></table></figure></p>
+<p>這個例子裡，make 的效果等同於 make main，可以不用指定 main 的原因是 make 會預設讀第一個 target。</p>
+<p><strong>Reference:</strong><br><a href="http://mropengate.blogspot.com/2018/01/makefile.html" target="_blank" rel="external">http://mropengate.blogspot.com/2018/01/makefile.html</a><br><a href="https://wwssllabcd.github.io/blog/2016/10/03/how-to-write-make-file" target="_blank" rel="external">https://wwssllabcd.github.io/blog/2016/10/03/how-to-write-make-file</a><br><a href="http://maxubuntu.blogspot.com/2010/02/makefile.html" target="_blank" rel="external">http://maxubuntu.blogspot.com/2010/02/makefile.html</a><br><a href="http://linux.vbird.org/linux_basic/0520source_code_and_tarball.php#make_makefile" target="_blank" rel="external">http://linux.vbird.org/linux_basic/0520source_code_and_tarball.php#make_makefile</a></p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gcc/">gcc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/makefile/">makefile</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/25/Version-Control-System-GIT/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Version Control System -- GIT&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Fread Hsiao&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>
