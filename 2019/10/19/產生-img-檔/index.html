@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>產生 .img 檔 - Freda&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="產生 1G 的 .img 檔1234$ dd if=&quot;/dev/zero&quot; of=&quot;test.img&quot; bs=&quot;1M&quot; count=&quot;1024&quot;1024+0 records in1024+0 records out1073741824 bytes (1.1 GB) copied, 2.59118 s, 414 MB/s 找可以用的 loop device123$ losetup -f/dev/lo">
+<meta name="keywords" content="losetup,kpartx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="產生 .img 檔">
+<meta property="og:url" content="http://yoursite.com/2019/10/19/產生-img-檔/index.html">
+<meta property="og:site_name" content="Freda&#39;s Blog">
+<meta property="og:description" content="產生 1G 的 .img 檔1234$ dd if=&quot;/dev/zero&quot; of=&quot;test.img&quot; bs=&quot;1M&quot; count=&quot;1024&quot;1024+0 records in1024+0 records out1073741824 bytes (1.1 GB) copied, 2.59118 s, 414 MB/s 找可以用的 loop device123$ losetup -f/dev/lo">
+<meta property="og:updated_time" content="2019-10-19T09:23:24.274Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="產生 .img 檔">
+<meta name="twitter:description" content="產生 1G 的 .img 檔1234$ dd if=&quot;/dev/zero&quot; of=&quot;test.img&quot; bs=&quot;1M&quot; count=&quot;1024&quot;1024+0 records in1024+0 records out1073741824 bytes (1.1 GB) copied, 2.59118 s, 414 MB/s 找可以用的 loop device123$ losetup -f/dev/lo">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-產生-img-檔" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      產生 .img 檔
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2019/10/19/產生-img-檔/" class="article-date">
+  <time datetime="2019-10-19T08:28:00.000Z" itemprop="datePublished">2019-10-19</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Develop/">Develop</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="產生-1G-的-img-檔"><a href="#產生-1G-的-img-檔" class="headerlink" title="產生 1G 的 .img 檔"></a>產生 1G 的 .img 檔</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ dd <span class="keyword">if</span>=<span class="string">"/dev/zero"</span> of=<span class="string">"test.img"</span> bs=<span class="string">"1M"</span> count=<span class="string">"1024"</span></div><div class="line">1024+0 records <span class="keyword">in</span></div><div class="line">1024+0 records out</div><div class="line">1073741824 bytes (1.1 GB) copied, 2.59118 s, 414 MB/s</div></pre></td></tr></table></figure>
+<h3 id="找可以用的-loop-device"><a href="#找可以用的-loop-device" class="headerlink" title="找可以用的 loop device"></a>找可以用的 loop device</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ losetup -f</div><div class="line">/dev/loop0</div><div class="line">$ losetup /dev/loop0 test.img</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="對-test-img-切-partition-format"><a href="#對-test-img-切-partition-format" class="headerlink" title="對 test.img 切 partition, format"></a>對 test.img 切 partition, format</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$ fdisk /dev/loop0</div><div class="line">Disk /dev/loop0: 1073 MB, 1073741824 bytes</div><div class="line">255 heads, 63 sectors/track, 130 cylinders</div><div class="line">Units = cylinders of 16065 * 512 = 8225280 bytes</div><div class="line">Sector size (logical/physical): 512 bytes / 512 bytes</div><div class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</div><div class="line">Disk identifier: 0xc97560de</div><div class="line"></div><div class="line">      Device Boot      Start         End      Blocks   Id  System</div><div class="line">/dev/loop0p1               1         130     1044193+  83  Linux</div><div class="line">$ kpartx -av /dev/loop0</div><div class="line">add map loop0p1 (253:0): 0 2088387 linear /dev/loop0 63</div><div class="line">$ ls /dev/mapper <span class="comment"># kpartx 下完會看到 loop0p1</span></div><div class="line">control  loop0p1</div><div class="line">$ mkfs.ext4 /dev/mapper/loop0p1</div></pre></td></tr></table></figure>
+<h3 id="Mount"><a href="#Mount" class="headerlink" title="Mount"></a>Mount</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mount /dev/mapper/loop0p1 /mnt</div></pre></td></tr></table></figure>
+<h3 id="Unmount"><a href="#Unmount" class="headerlink" title="Unmount"></a>Unmount</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ umount /mnt</div><div class="line">$ kpartx -d /dev/loop0</div><div class="line">$ losetup -d /dev/loop0</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kpartx/">kpartx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/losetup/">losetup</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/09/30/2019-2-27-3-3-北京天津自由行/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2019 2/27 ~ 3/3 北京天津自由行&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Fread Hsiao&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

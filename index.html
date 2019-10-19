@@ -49,6 +49,61 @@
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-產生-img-檔" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/19/產生-img-檔/">產生 .img 檔</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2019/10/19/產生-img-檔/" class="article-date">
+  <time datetime="2019-10-19T08:28:00.000Z" itemprop="datePublished">2019-10-19</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Develop/">Develop</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="產生-1G-的-img-檔"><a href="#產生-1G-的-img-檔" class="headerlink" title="產生 1G 的 .img 檔"></a>產生 1G 的 .img 檔</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ dd <span class="keyword">if</span>=<span class="string">"/dev/zero"</span> of=<span class="string">"test.img"</span> bs=<span class="string">"1M"</span> count=<span class="string">"1024"</span></div><div class="line">1024+0 records <span class="keyword">in</span></div><div class="line">1024+0 records out</div><div class="line">1073741824 bytes (1.1 GB) copied, 2.59118 s, 414 MB/s</div></pre></td></tr></table></figure>
+<h3 id="找可以用的-loop-device"><a href="#找可以用的-loop-device" class="headerlink" title="找可以用的 loop device"></a>找可以用的 loop device</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ losetup -f</div><div class="line">/dev/loop0</div><div class="line">$ losetup /dev/loop0 test.img</div></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2019/10/19/產生-img-檔/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kpartx/">kpartx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/losetup/">losetup</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+    
       <article id="post-2019-2-27-3-3-北京天津自由行" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -77,7 +132,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="地圖"><a href="#地圖" class="headerlink" title="地圖"></a>地圖</h3><p><strong>高德地圖</strong><br><a href="https://ditu.amap.com/?amapexchange=%2F" target="_blank" rel="external">https://ditu.amap.com/?amapexchange=%2F</a><br><strong>地鐵</strong><br><a href="http://jtapi.bendibao.com/ditie/inc/bj/xianluda.gif" target="_blank" rel="external">http://jtapi.bendibao.com/ditie/inc/bj/xianluda.gif</a></p>
-<h3 id="花的錢"><a href="#花的錢" class="headerlink" title="花的錢"></a>花的錢</h3><p>機票+台胞證 <code>$12865</code><br>SIM 卡 <code>$250</code><br>飯店 <code>$5369</code><br>換人民幣 <code>$8147</code><br>微信 <code>$2400</code><br>Uber <code>$206</code><br>1962 客運 <code>$270</code></p>
+<h3 id="花的錢"><a href="#花的錢" class="headerlink" title="花的錢"></a>花的錢</h3><p>機票+台胞證 <code>$12865</code><br>SIM 卡 <code>$250</code><br>飯店 <code>$5369</code><br>換人民幣 <code>$4656</code><br>微信 <code>$2400</code><br>Uber <code>$206</code><br>1962 客運 <code>$270</code></p>
         
           <p class="article-more-link">
             <a href="/2019/09/30/2019-2-27-3-3-北京天津自由行/#more">Read More</a>
@@ -234,7 +289,7 @@
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Develop-Tool/">Develop Tool</a>
+    <a class="article-category-link" href="/categories/Develop/">Develop</a>
   </div>
 
       
